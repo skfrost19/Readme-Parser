@@ -1,8 +1,9 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
+import path = require('path');
 import * as vscode from 'vscode';
 
-async function convertReadmeToHtml(readme: string) {
+async function convertReadmeToHtml(readme: string, context: vscode.ExtensionContext) {
 	var md = require('markdown-it')({
 		html: true,
 		linkify: true
@@ -15,10 +16,20 @@ async function convertReadmeToHtml(readme: string) {
 		vscode.ViewColumn.One,
 		{
 			enableScripts: true,
-			retainContextWhenHidden: true
+			retainContextWhenHidden: true,
+			// add css to the webview form folder 'media'
+			localResourceRoots: [vscode.Uri.file(context.extensionPath)]
 		}
 	);
-	panel.webview.html = '<html>' + '<body style="background-color: white;color: black;">' + result + '</body></html>';
+	// get the css file path
+	const cssUri = panel.webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, 'media', 'style.css')));
+	panel.webview.html = `
+	<html> 
+	<head><link rel = "stylesheet type = "text/css" href = "${cssUri}">
+	</head>
+	<body style="background-color: white;color: black;">` + result + 
+	`</body>
+	</html>`;
 	return result;
 }
 
@@ -35,7 +46,7 @@ export function activate(context: vscode.ExtensionContext) {
 		if (editor) {
 			const document = editor.document;
 			const text = document.getText();
-			convertReadmeToHtml(text);
+			convertReadmeToHtml(text, context);
 		} else {
 			vscode.window.showErrorMessage("No active text editor");
 		}

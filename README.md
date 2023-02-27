@@ -19,8 +19,8 @@ To install the extension, follow these steps:
 or Click <a href = "https://marketplace.visualstudio.com/items?itemName=ShahilKumar.readme-parser"> Here </a> to install the extension from the VS Code Marketplace.
 
 ## Usage
-To use the Readme Parser Extension, simply open a Markdown file in the editor and right click inside the editor, then select <b>'Parse'</b>
-to preview the file as HTML. You can also use the keyboard shortcut Ctrl+Shift+P (Windows, Linux) or Cmd+Shift+P (macOS) to open the command palette and type "Parse" to preview the file as HTML.
+* To use the Readme Parser Extension, simply open a Markdown file in the editor and right click inside the editor, then select <b>'Parse'</b> to preview the file as HTML. 
+* You can also use the keyboard shortcut Ctrl+Shift+P (Windows, Linux) or Cmd+Shift+P (macOS) to open the command palette and type "Parse" to preview the file as HTML.
 
 ## Contributing
 If you encounter any issues with the extension or would like to suggest a feature, please open an issue on the <a href = "https://github.com/skfrost19/Readme-Parser">GitHub</a> repository.
