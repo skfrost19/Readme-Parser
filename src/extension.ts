@@ -1,6 +1,5 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import path = require('path');
 import * as vscode from 'vscode';
 
 async function convertReadmeToHtml(readme: string, context: vscode.ExtensionContext) {
@@ -17,17 +16,21 @@ async function convertReadmeToHtml(readme: string, context: vscode.ExtensionCont
 		{
 			enableScripts: true,
 			retainContextWhenHidden: true,
-			// add css to the webview form folder 'media'
-			localResourceRoots: [vscode.Uri.file(context.extensionPath)]
 		}
 	);
-	// get the css file path
-	const cssUri = panel.webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, 'media', 'style.css')));
+
+	// get current font used in vscode
+	var font = vscode.workspace.getConfiguration('editor').get('fontFamily');
 	panel.webview.html = `
 	<html> 
-	<head><link rel = "stylesheet type = "text/css" href = "${cssUri}">
+	<head>
+	<style>
+		html * {
+			font-family: ${font};
+		}
+	</style>
 	</head>
-	<body style="background-color: white;color: black;">` + result + 
+	<body>` + result + 
 	`</body>
 	</html>`;
 	return result;
