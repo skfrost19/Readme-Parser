@@ -6,7 +6,7 @@
   "icon": "assets/icons/parsing.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com"
+    "url": "https://github.com/skfrost19/Readme-Parser"
   },
   "version": "0.0.1",
   "engines": {
