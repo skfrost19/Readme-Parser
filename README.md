@@ -6,6 +6,8 @@ The Readme Parser Extension for VS Code is a tool that allows you to quickly par
 * Fast and Easy Installation.
 * Links will be parsed correctly.
 * Supports common Markdown syntax.
+* Supports GitHub Flavored Markdown syntax.
+* Preserves the VSCode editor's font.
 
 ## Installation
 To install the extension, follow these steps:

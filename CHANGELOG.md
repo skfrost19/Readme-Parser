@@ -15,3 +15,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.1.1] - 2023-02-27
 
 - Fixed font change issue after parsing.
+
+## [0.1.2] - 2023-03-06
+
+- Preserve Editor's Font.
